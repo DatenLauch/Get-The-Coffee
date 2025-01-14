@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: LightGreen
   m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
-  m_Parent: {fileID: 2100000, guid: 1ae7c7e4ab589804bbbbe7bbd802ea35, type: 2}
+  m_Parent: {fileID: 2100000, guid: 78a3599276b974b47932b820cc687e9f, type: 2}
   m_ModifiedSerializedProperties: 18
   m_ValidKeywords: []
   m_InvalidKeywords: []
