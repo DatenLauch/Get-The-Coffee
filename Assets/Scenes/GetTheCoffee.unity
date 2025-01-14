@@ -8684,12 +8684,24 @@ PrefabInstance:
     m_TransformParent: {fileID: 1376119485}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 7275b96526f7d8b4ea336cc9bbf0cafa, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7275b96526f7d8b4ea336cc9bbf0cafa, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7275b96526f7d8b4ea336cc9bbf0cafa, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7275b96526f7d8b4ea336cc9bbf0cafa, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7275b96526f7d8b4ea336cc9bbf0cafa, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.5
+      value: 4.2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7275b96526f7d8b4ea336cc9bbf0cafa, type: 3}
       propertyPath: m_LocalPosition.z
@@ -8731,6 +8743,26 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: e7a3b137c9b53b049a73e477847be921, type: 2}
+    - target: {fileID: -5771331997385769849, guid: 7275b96526f7d8b4ea336cc9bbf0cafa, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -5771331997385769849, guid: 7275b96526f7d8b4ea336cc9bbf0cafa, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -5771331997385769849, guid: 7275b96526f7d8b4ea336cc9bbf0cafa, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -5771331997385769849, guid: 7275b96526f7d8b4ea336cc9bbf0cafa, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.15
+      objectReference: {fileID: 0}
+    - target: {fileID: -5771331997385769849, guid: 7275b96526f7d8b4ea336cc9bbf0cafa, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 7275b96526f7d8b4ea336cc9bbf0cafa, type: 3}
       propertyPath: m_Name
       value: kitchenCoffeeMachine
@@ -8738,7 +8770,7 @@ PrefabInstance:
     - target: {fileID: 2312302872230870856, guid: 7275b96526f7d8b4ea336cc9bbf0cafa, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 7750be237bfa29045ae2217c75216e35, type: 2}
+      objectReference: {fileID: 2100000, guid: 629dcc1733d0f6044b983d457efcab4d, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
