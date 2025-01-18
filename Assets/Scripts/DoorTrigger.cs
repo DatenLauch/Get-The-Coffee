@@ -7,8 +7,10 @@ public class DoorTrigger : MonoBehaviour, IInteractable
     public string Interactionprompt => _prompt;
     
     private Animator doorAnimator;
+    
     public bool Interact(Interactor interactor)
     {
+        
         OpenDoor();
         return true;
     }
@@ -20,6 +22,7 @@ public class DoorTrigger : MonoBehaviour, IInteractable
     
     public void OpenDoor()
     {
+        //
         doorAnimator.SetTrigger("ToggleDoor");
     }
 }

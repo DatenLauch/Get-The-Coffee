@@ -31,6 +31,16 @@ public class Interactor : MonoBehaviour
                 Debug.Log("InteractionEvent received with input: " + interactionInput);
             };
         }
+        
+        KeyboardMovement keyboardMovement = FindObjectOfType<KeyboardMovement>();
+        if (keyboardMovement != null)
+        {
+            keyboardMovement.OnInteractionInput += interactionInput =>
+            {
+                this.interaction = interactionInput;
+                Debug.Log("InteractionEvent from Keyboard received with input: " + interactionInput);
+            };
+        }
     }
 
     private void Update()

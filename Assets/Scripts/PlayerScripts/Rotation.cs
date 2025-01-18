@@ -25,6 +25,17 @@ public class Rotation : MonoBehaviour
                 //Debug.Log("Event received with input: " + input);
             };
         }
+        
+        KeyboardMovement keyboardMovement = FindObjectOfType<KeyboardMovement>();
+        if (!controllerEnabled)
+        {
+            keyboardMovement.OnRotationInput += keyboardInput =>
+            {
+                rotationInput = keyboardInput;
+                Debug.Log("Rotation going on " + rotationInput);
+
+            };
+        }
     }
     
     // Update is called once per frame
