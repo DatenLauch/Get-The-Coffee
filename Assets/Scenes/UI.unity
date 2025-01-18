@@ -518,6 +518,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1651653587809703293, guid: f3fdb2f6afff262958a6f861c2144cf5, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2289860341607863875, guid: f3fdb2f6afff262958a6f861c2144cf5, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2499140864415619917, guid: f3fdb2f6afff262958a6f861c2144cf5, type: 3}
+      propertyPath: hasRedCard
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2499140864415619917, guid: f3fdb2f6afff262958a6f861c2144cf5, type: 3}
+      propertyPath: hasBlueCard
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2499140864415619917, guid: f3fdb2f6afff262958a6f861c2144cf5, type: 3}
+      propertyPath: hasYellowCard
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3836101555852491749, guid: f3fdb2f6afff262958a6f861c2144cf5, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -601,6 +621,42 @@ PrefabInstance:
     - target: {fileID: 4552409557796420779, guid: f3fdb2f6afff262958a6f861c2144cf5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5156650090920351541, guid: f3fdb2f6afff262958a6f861c2144cf5, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5477030711884659943, guid: f3fdb2f6afff262958a6f861c2144cf5, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5853700971883162572, guid: f3fdb2f6afff262958a6f861c2144cf5, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5853700971883162572, guid: f3fdb2f6afff262958a6f861c2144cf5, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -40
+      objectReference: {fileID: 0}
+    - target: {fileID: 5853700971883162572, guid: f3fdb2f6afff262958a6f861c2144cf5, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6698447757874048363, guid: f3fdb2f6afff262958a6f861c2144cf5, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7895943418916720022, guid: f3fdb2f6afff262958a6f861c2144cf5, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8103100674707973698, guid: f3fdb2f6afff262958a6f861c2144cf5, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8759265848662539923, guid: f3fdb2f6afff262958a6f861c2144cf5, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -829,8 +885,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a382d3ed4f80918f989a14e13d9c36c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
-  rotateSpeed: 3
 --- !u!114 &1954604111 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2499140864415619917, guid: f3fdb2f6afff262958a6f861c2144cf5, type: 3}

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class other : MonoBehaviour
+public class Collision : MonoBehaviour
 {
     public UIManager UIManager;
     private void OnTriggerEnter(Collider other)

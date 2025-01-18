@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 using System.Collections;
 
@@ -95,5 +96,6 @@ public class UIManager : MonoBehaviour
       UpdateTextField();
       yield return new WaitForSecondsRealtime(1.0f);
     }
+    SceneManager.LoadScene("StartScreen");
   }
 }
