@@ -12,10 +12,9 @@ GameObject:
   - component: {fileID: 8927921996055741331}
   - component: {fileID: 8927921996056871251}
   - component: {fileID: 6368618750450622449}
-  - component: {fileID: 4505027427247519751}
   m_Layer: 0
-  m_Name: mug
-  m_TagString: Untagged
+  m_Name: cup
+  m_TagString: Cup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109,16 +108,3 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.07
   m_Center: {x: -0.01, y: 0.05, z: 0}
---- !u!114 &4505027427247519751
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8927921996059074451}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9215fa71950a1987f9340782b99c7b86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  uiManager: {fileID: 0}

@@ -8,15 +8,45 @@ public class UIManager : MonoBehaviour
   public TextMeshProUGUI timer;
   public TextMeshProUGUI beansUI;
   public TextMeshProUGUI cupsUI;
-  public TextMeshProUGUI keysUI;
+  public GameObject BlueCard;
+  public GameObject RedCard;
+  public GameObject YellowCard;
   public int cups;
   public int beans;
-  public bool redCard = false;
-  public bool blueCard = false;
-  public bool greenCard = false;
+  public bool hasRedCard = false;
+  public bool hasBlueCard = false;
+  public bool hasYellowCard = false;
   public float totalTime;
 
   void Start() { StartCoroutine(Countdown()); }
+
+  void Update()
+  {
+    if (hasRedCard && !RedCard.activeInHierarchy)
+    {
+      RedCard.SetActive(true);
+    }
+    if (!hasRedCard && RedCard.activeInHierarchy)
+    {
+      RedCard.SetActive(false);
+    }
+    if (hasBlueCard && !BlueCard.activeInHierarchy)
+    {
+      BlueCard.SetActive(true);
+    }
+    if (!hasBlueCard && BlueCard.activeInHierarchy)
+    {
+      BlueCard.SetActive(false);
+    }
+    if (hasYellowCard && !YellowCard.activeInHierarchy)
+    {
+      YellowCard.SetActive(true);
+    }
+    if (!hasYellowCard && YellowCard.activeInHierarchy)
+    {
+      YellowCard.SetActive(false);
+    }
+  }
 
   public void increaseBeans()
   {
@@ -30,21 +60,20 @@ public class UIManager : MonoBehaviour
     cupsUI.text = $"       :{cups}";
   }
 
-  public void updateKeys(string cardColor)
+  public void updateCards(string cardColor)
   {
     switch (cardColor)
     {
       case "red":
-        redCard = true;
+        hasRedCard = true;
         break;
       case "blue":
-        blueCard = true;
+        hasBlueCard = true;
         break;
-      case "green":
-        greenCard = true;
+      case "yellow":
+        hasYellowCard = true;
         break;
     }
-    keysUI.text = $"RedCard";
   }
 
   void UpdateTextField()
@@ -67,7 +96,4 @@ public class UIManager : MonoBehaviour
       yield return new WaitForSecondsRealtime(1.0f);
     }
   }
-
-
-
 }
