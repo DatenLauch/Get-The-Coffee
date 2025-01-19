@@ -19,8 +19,8 @@ public class KeyboardMovement : MonoBehaviour
 
     // Update is called once per frame
     Vector3 _vector3 = new Vector3(0f, 0f, 0f);
-    float _rotation = 0f;
-    bool _interaction = false;
+    float _rotation;
+    bool _interaction;
     void Update()
     {
         Movement();
@@ -54,25 +54,20 @@ public class KeyboardMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.A))
         {
-            _rotation = -1f;
             OnRotationInput?.Invoke(-1f);
         }
         else if(Input.GetKeyUp(KeyCode.A))
         {
-            _rotation = 0f;
             OnRotationInput?.Invoke(0f);
 
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
-            _rotation = -1f;
             OnRotationInput?.Invoke(1f);
         }
         else if(Input.GetKeyUp(KeyCode.D))
         {
-            _rotation = 0f;
             OnRotationInput?.Invoke(0f);
-
         }
 
         if (Input.GetKeyDown(KeyCode.E))
