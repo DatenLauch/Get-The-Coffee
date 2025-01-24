@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 using System.Collections;
+using EndScreen;
 
 public class UIManager : MonoBehaviour
 {
@@ -21,6 +22,9 @@ public class UIManager : MonoBehaviour
   public bool hasBlueCard = false;
   public bool hasYellowCard = false;
   public float totalTime;
+  
+  [SerializeField] private GameOverManager gameOverManager;
+
 
   void Start() { StartCoroutine(Countdown()); }
 
@@ -102,6 +106,6 @@ public class UIManager : MonoBehaviour
       UpdateTextField();
       yield return new WaitForSecondsRealtime(1.0f);
     }
-    SceneManager.LoadScene("StartScreen");
+    gameOverManager.EndGame(false, totalTime);
   }
 }
