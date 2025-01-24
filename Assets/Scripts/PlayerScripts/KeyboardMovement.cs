@@ -9,6 +9,8 @@ public class KeyboardMovement : MonoBehaviour
     public event InteractionInputHandler OnInteractionInput;
     public event RotationInputHandler OnRotationInput;
     public event MovementInputHandler OnMovementInput;
+    
+    private bool _movementEnabled = true;
 
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -28,6 +30,8 @@ public class KeyboardMovement : MonoBehaviour
 
     void Movement()
     {
+        if (!_movementEnabled) return;
+
         if (Input.GetKeyDown(KeyCode.W))
         {
             /*
@@ -79,5 +83,13 @@ public class KeyboardMovement : MonoBehaviour
             OnInteractionInput?.Invoke(interaction: false);
         }
         
+    }
+    
+    /** Disable the movement with the keyboard.
+     * Example: Game is over and the player should not be able to move.
+     */
+    public void DisableKeyboardMovement()
+    {
+        _movementEnabled = false;
     }
 }

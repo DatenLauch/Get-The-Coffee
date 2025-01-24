@@ -8684,6 +8684,8 @@ MonoBehaviour:
   failureImage: {fileID: 869369813}
   gameInfoText: {fileID: 869369812}
   blurPanel: {fileID: 869369811}
+  player: {fileID: 2013786814}
+  keyboardMovement: {fileID: 179552927}
 --- !u!4 &473804444
 Transform:
   m_ObjectHideFlags: 0
@@ -41746,6 +41748,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 0388842d1dbe45c42a49c9b6fc649655, type: 3}
+--- !u!1 &2013786814 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2074491223235842779, guid: 0388842d1dbe45c42a49c9b6fc649655, type: 3}
+  m_PrefabInstance: {fileID: 2013786813}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2015036576
 GameObject:
   m_ObjectHideFlags: 0

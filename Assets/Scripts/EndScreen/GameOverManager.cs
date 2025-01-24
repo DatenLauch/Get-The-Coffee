@@ -10,6 +10,9 @@ namespace EndScreen
         [SerializeField] protected RawImage failureImage;
         [SerializeField] protected TextMeshProUGUI gameInfoText;
         [SerializeField] protected GameObject blurPanel;
+        
+        [SerializeField] protected GameObject player;
+        [SerializeField] protected GameObject keyboardMovement;
 
         private bool _gameCompleted = false; // Set this based on game completion
         private float _timeLeft = 120f; // Example time remaining
@@ -34,8 +37,23 @@ namespace EndScreen
         {
             _gameCompleted = isCompleted;
             _timeLeft = timeRemaining;
-
+            
+            DisablePlayerMovement();
             ShowEndScreen();
+        }
+
+        void DisablePlayerMovement()
+        {
+            KeyboardMovement keyboardMovementComponent = keyboardMovement.GetComponent<KeyboardMovement>();
+            if (keyboardMovementComponent != null)
+            {
+                keyboardMovementComponent.DisableKeyboardMovement();
+            }
+            Movement arduinoMovementComponent = player.GetComponentInChildren<Movement>();
+            if (arduinoMovementComponent != null)
+            {
+                arduinoMovementComponent.DisableArduinoMovement();
+            }
         }
     }
 }

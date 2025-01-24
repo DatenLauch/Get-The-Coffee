@@ -13,6 +13,8 @@ public class Movement : MonoBehaviour
     [SerializeField]
     bool controllerEnabled;
     private Vector3 input;
+    
+    private bool _movementEnabled = true;
 
     void Start()
     {
@@ -53,9 +55,19 @@ public class Movement : MonoBehaviour
 
     void Move(Vector3 input)
     {
+        if (!_movementEnabled) return;
+        
         //Debug.Log("Movement going on " + input);
         Vector3 movement = ((transform.forward * -input.x) + (transform.right * input.z)).normalized * moveSpeed;
         rb.linearVelocity = new Vector3(movement.x, rb.linearVelocity.y, movement.z);
         
+    }
+
+    /** Disable the movement with the arduino.
+     * Example: Game is over and the player should not be able to move.
+     */
+    public void DisableArduinoMovement()
+    {
+        _movementEnabled = false;
     }
 }
