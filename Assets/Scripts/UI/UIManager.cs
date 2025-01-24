@@ -12,8 +12,11 @@ public class UIManager : MonoBehaviour
   public GameObject BlueCard;
   public GameObject RedCard;
   public GameObject YellowCard;
-  public int cups;
-  public int beans;
+  public AudioManager audioManager;
+  public int cups = 0;
+  public int beans = 0;
+  public int maxCups = 1;
+  public int maxBeans = 5;
   public bool hasRedCard = false;
   public bool hasBlueCard = false;
   public bool hasYellowCard = false;
@@ -52,29 +55,32 @@ public class UIManager : MonoBehaviour
   public void increaseBeans()
   {
     this.beans++;
-    beansUI.text = $"       :{beans}";
+    beansUI.text = $"       {beans}/{maxBeans}";
+    audioManager.playSound(SoundEnum.PickupOne);
   }
 
   public void increaseCups()
   {
     this.cups++;
-    cupsUI.text = $"       :{cups}";
+    cupsUI.text = $"       {cups}/{maxCups}";
+    audioManager.playSound(SoundEnum.PickupOne);
   }
 
   public void updateCards(string cardColor)
   {
     switch (cardColor)
     {
-      case "red":
+      case "RedCard":
         hasRedCard = true;
         break;
-      case "blue":
+      case "BlueCard":
         hasBlueCard = true;
         break;
-      case "yellow":
+      case "YellowCard":
         hasYellowCard = true;
         break;
     }
+    audioManager.playSound(SoundEnum.PickupTwo);
   }
 
   void UpdateTextField()

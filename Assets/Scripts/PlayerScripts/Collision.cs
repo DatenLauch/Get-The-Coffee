@@ -13,18 +13,8 @@ public class Collision : MonoBehaviour
             case "Cup":
                 UIManager.increaseCups();
                 break;
-        }
-
-        switch (other.gameObject.name)
-        {
-            case "BlueCard":
-                UIManager.updateCards("blue");
-                break;
-            case "RedCard":
-                UIManager.updateCards("red");
-                break;
-            case "YellowCard":
-                UIManager.updateCards("yellow");
+            case "Card":
+                UIManager.updateCards(other.gameObject.name);
                 break;
         }
         other.gameObject.SetActive(false);
