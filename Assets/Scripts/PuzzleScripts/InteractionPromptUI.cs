@@ -12,8 +12,9 @@ public class InteractionPromptUI : MonoBehaviour
 
     private void Start()
     {
-        _mainCam = Camera.main; 
+        _mainCam = Camera.main;
         _uiPanel.SetActive(false);
+        _promptText.SetText("");
     }
 
     private void LateUpdate()
@@ -25,7 +26,7 @@ public class InteractionPromptUI : MonoBehaviour
     public bool IsDisplayed = false;
     public void SetUp(string promptText)
     {
-        _promptText.text = promptText;
+        _promptText.SetText(promptText);
         _uiPanel.SetActive(true);
         IsDisplayed = true;
     }
@@ -33,6 +34,7 @@ public class InteractionPromptUI : MonoBehaviour
     public void Close()
     {
         _uiPanel.SetActive(false);
+        _promptText.SetText("");
         IsDisplayed = false;
     }
 }
