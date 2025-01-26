@@ -5,13 +5,9 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    [SerializeField]
-    float moveSpeed;
-    [SerializeField]
-    float rotationSpeed;
-    Rigidbody rb;
-    [SerializeField]
-    bool controllerEnabled;
+    [SerializeField] float moveSpeed;
+    private Rigidbody rb;
+    [SerializeField] bool controllerEnabled;
     private Vector3 input;
     
     private bool _movementEnabled = true;
@@ -20,7 +16,7 @@ public class Movement : MonoBehaviour
     {
         input = new Vector3();
         rb = GetComponent<Rigidbody>();
-        SerialController serialController = FindObjectOfType<SerialController>();
+        SerialController serialController = FindFirstObjectByType<SerialController>();
         if (serialController != null && controllerEnabled)
         {
             serialController.OnMovementInput += (controllerInput) =>
@@ -30,7 +26,7 @@ public class Movement : MonoBehaviour
             };
         }
         
-        KeyboardMovement keyboardMovement = FindObjectOfType<KeyboardMovement>();
+        KeyboardMovement keyboardMovement = FindFirstObjectByType<KeyboardMovement>();
         if (!controllerEnabled)
         {
             keyboardMovement.OnMovementInput += controllerInput =>

@@ -3,7 +3,7 @@ using UnityEngine;
 using System.IO.Ports;
 public class SerialController : MonoBehaviour
 {
-    SerialPort sp = new SerialPort("COM4", 9600);
+    private SerialPort sp;
     public delegate void CardScanInputHandler(String cardIdentification);
     public delegate void MovementInputHandler(Vector3 movementInput);
     public delegate void RotationInputHandler(float rotationInput);
@@ -28,6 +28,14 @@ public class SerialController : MonoBehaviour
     private bool toggleMovementAndRotation = true;
     void Start()
     {
+        try
+        {
+            sp = new SerialPort("COM4", 9600);
+        }
+        catch (Exception e)
+        { 
+            Debug.Log("No Arduino found");
+        }
         if (!sp.IsOpen)
             sp.Open();
     }

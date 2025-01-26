@@ -5,18 +5,16 @@ using UnityEngine;
 
 public class Rotation : MonoBehaviour
 {
-    [SerializeField]
-    float rotationSpeed;
+    [SerializeField] float rotationSpeed;
     Rigidbody rb;
-    [SerializeField]
-    bool controllerEnabled;
+    [SerializeField] bool controllerEnabled;
     private float rotationInput = 0f;
     
     void Start()
     {
         
         rb = GetComponent<Rigidbody>();
-        SerialController serialController = FindObjectOfType<SerialController>();
+        SerialController serialController = FindFirstObjectByType<SerialController>();
         if (serialController != null)
         {
             serialController.OnRotationInput += (controllerInput) =>
@@ -26,7 +24,7 @@ public class Rotation : MonoBehaviour
             };
         }
         
-        KeyboardMovement keyboardMovement = FindObjectOfType<KeyboardMovement>();
+        KeyboardMovement keyboardMovement = FindFirstObjectByType<KeyboardMovement>();
         if (!controllerEnabled)
         {
             keyboardMovement.OnRotationInput += keyboardInput =>

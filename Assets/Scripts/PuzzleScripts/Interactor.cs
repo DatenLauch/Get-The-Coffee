@@ -22,7 +22,7 @@ public class Interactor : MonoBehaviour
     private void Start()
     {
         
-        SerialController serialController = FindObjectOfType<SerialController>();
+        SerialController serialController = FindFirstObjectByType<SerialController>();
         if (serialController != null)
         {
             serialController.OnInteractionInput += (interactionInput) =>
@@ -32,7 +32,7 @@ public class Interactor : MonoBehaviour
             };
         }
         
-        KeyboardMovement keyboardMovement = FindObjectOfType<KeyboardMovement>();
+        KeyboardMovement keyboardMovement = FindFirstObjectByType<KeyboardMovement>();
         if (keyboardMovement != null)
         {
             keyboardMovement.OnInteractionInput += interactionInput =>
