@@ -73,7 +73,7 @@ public class FollowPlayerCamera : MonoBehaviour
             yield return null;
         }
         isMovingSmoothly = false;
-        
-        //Debug.Log("Player is following");
     }
+    
+    
 }

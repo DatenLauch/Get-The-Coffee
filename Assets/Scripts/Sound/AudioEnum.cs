@@ -4,6 +4,8 @@ public enum SoundEnum
     PickupTwo,
     DoorClose,
     DoorOpen,
+    KeyCardAccept,
+    KeyCardReject,
     CoffeeFail,
     CoffeeSuccess
 }
