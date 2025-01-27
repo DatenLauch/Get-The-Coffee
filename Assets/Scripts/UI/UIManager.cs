@@ -59,14 +59,14 @@ public class UIManager : MonoBehaviour
   public void increaseBeans()
   {
     this.beans++;
-    beansUI.text = $"       {beans}/{maxBeans}";
+    beansUI.text = $"       {beans} / {maxBeans}";
     audioManager.playSound(SoundEnum.PickupOne);
   }
 
   public void increaseCups()
   {
     this.cups++;
-    cupsUI.text = $"       {cups}/{maxCups}";
+    cupsUI.text = $"       {cups} / {maxCups}";
     audioManager.playSound(SoundEnum.PickupOne);
   }
 

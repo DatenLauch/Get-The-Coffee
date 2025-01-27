@@ -3,7 +3,7 @@ using GTC_Scripts;
 
 public class InteractablePickupObject : MonoBehaviour, IInteractable
 {
-    public GameObject prompt;
+    // public GameObject prompt;
     public UIManager uIManager;
     public string Interactionprompt => "";
 
@@ -29,6 +29,6 @@ public class InteractablePickupObject : MonoBehaviour, IInteractable
     private void destroyInteractable()
     {
         Destroy(gameObject);
-        prompt.SetActive(false);
+        // prompt.SetActive(false);
     }
 }
