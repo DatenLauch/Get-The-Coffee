@@ -29,6 +29,6 @@ public class InteractablePickupObject : MonoBehaviour, IInteractable
     private void destroyInteractable()
     {
         Destroy(gameObject);
-        prompt.SetActive(false);
+        if(prompt != null) prompt.SetActive(false);
     }
 }

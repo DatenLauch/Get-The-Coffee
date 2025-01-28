@@ -9,7 +9,7 @@ public class FollowPlayerCamera : MonoBehaviour
     public Transform playerTransform;
     public Vector3 offset;
     public float rotationSpeed = 1f;
-
+    public float angle = 0f;
     // Neue Variablen für die Kameraführung
     public bool followPlayer = true; // Flag, ob die Kamera dem Spieler folgen soll
     public GameObject puzzleGameObject;
@@ -31,7 +31,7 @@ public class FollowPlayerCamera : MonoBehaviour
             transform.position = playerTransform.position + offsetRotated;
             transform.position = Vector3.Lerp(transform.position, playerTransform.position + offsetRotated, moveSpeed * Time.deltaTime);
             Quaternion targetRotation = Quaternion.Slerp(transform.rotation, playerRotation, rotationSpeed * Time.deltaTime);
-            transform.rotation = targetRotation;
+            transform.rotation = targetRotation * Quaternion.Euler(angle, 0, 0);
         }
         else
         {
