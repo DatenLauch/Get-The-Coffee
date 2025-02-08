@@ -53,8 +53,8 @@ public class SerialController : MonoBehaviour
         if (data != lastData)
         {
             lastData = data;
-            string[] splitData = data.Split(',');
-            if (splitData.Length == 1)
+            string[] splitData = data.Split(','); // Button Array sieht Beispielsweise so aus(1, 0, 0, 0, 0)
+            if (splitData.Length == 1) // die gelesene KartenID ist ein String in einem anderem Format wie das ButtonArray
             {
                 OnCardReadInput?.Invoke(splitData[0]);
                 Debug.Log("Card Read Input: " + splitData[0]);
@@ -77,6 +77,7 @@ public class SerialController : MonoBehaviour
         float forward = buttonStates[2];
         float backward = buttonStates[3];
         int interactionInt = buttonStates[4];
+        //Zuordnung der Buttons
         
         bool interactionBool = (interactionInt == 1) ? true : false;
         float rotationInput = left - right;
@@ -101,19 +102,15 @@ public class SerialController : MonoBehaviour
             }
         }
         
-        else if (!toggleMovementAndRotation) //Puzzle is Activated and the ArduinoInput needs a different proccessing
+        else if (!toggleMovementAndRotation) //Puzzle is Activated 
         {
             if (interactionBool != lastInteractionInputBool || puzzleIndexChange != lastPuzzleIndexChange)
             {
-                /*Debug.Log("Success into if condition:");
-                Debug.Log("Change for Index : now "+puzzleIndexChange);
-                Debug.Log("Change for Bool for NumberChange: now "+interactionBool);   */             
                 lastInteractionInputBool = interactionBool;
                 lastPuzzleIndexChange = puzzleIndexChange;
 
                 if (interactionBool != false || puzzleIndexChange != 0)
                 {
-                    Debug.Log("Sending event with: "+ puzzleIndexChange +" und "+ interactionBool);
                     OnPuzzleInput?.Invoke(puzzleIndexChange, interactionBool);
                 }
             }

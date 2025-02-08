@@ -6,18 +6,16 @@ public class KeyboardMovement : MonoBehaviour
     public delegate void MovementInputHandler(Vector3 movementInput);
     public delegate void RotationInputHandler(float rotationInput);    
     public delegate void InteractionInputHandler(bool interaction);
+    public delegate void PuzzleInputHandler(int puzzleIndexChange, bool interaction);
+    public event PuzzleInputHandler OnPuzzleInput;
+
     public event InteractionInputHandler OnInteractionInput;
     public event RotationInputHandler OnRotationInput;
     public event MovementInputHandler OnMovementInput;
     
     private bool _movementEnabled = true;
 
-    
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    private bool _puzzleEnabled = false;
 
     // Update is called once per frame
     Vector3 _vector3 = new Vector3(0f, 0f, 0f);
@@ -25,7 +23,8 @@ public class KeyboardMovement : MonoBehaviour
     bool _interaction;
     void Update()
     {
-        Movement();
+        if(!_puzzleEnabled) Movement();
+        if(_puzzleEnabled) PuzzleMovement();
     }
 
     void Movement()
@@ -34,9 +33,7 @@ public class KeyboardMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.W))
         {
-            /*
-            Debug.Log("w pressed");
-            */
+
             _vector3 = new Vector3(-1f, 0f, 0f);
             OnMovementInput?.Invoke(_vector3);
         }
@@ -78,11 +75,47 @@ public class KeyboardMovement : MonoBehaviour
         {
             OnInteractionInput?.Invoke(interaction: true);
         }
-        else if(Input.GetKeyDown(KeyCode.None))
+        else if(Input.GetKeyDown(KeyCode.E))
         {
             OnInteractionInput?.Invoke(interaction: false);
         }
         
+    }
+
+    int indexChange = 0;
+    void PuzzleMovement()
+    {
+        Debug.Log("PuzzleMovement");
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            indexChange = -1;
+            OnPuzzleInput?.Invoke(indexChange, _interaction);
+        }
+        else if(Input.GetKeyUp(KeyCode.A))
+        {
+            indexChange = 0;
+            OnPuzzleInput?.Invoke(indexChange, _interaction);
+        }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            indexChange = 1;
+            OnPuzzleInput?.Invoke(indexChange, _interaction);
+        }
+        else if(Input.GetKeyUp(KeyCode.D))
+        {
+            indexChange = 0;
+            OnPuzzleInput?.Invoke(indexChange, _interaction);
+        }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            _interaction = true;
+            OnPuzzleInput?.Invoke(indexChange, _interaction);
+        }
+        else if(Input.GetKeyUp(KeyCode.E))
+        {
+            _interaction = false;
+            OnPuzzleInput?.Invoke(indexChange, _interaction);
+        }
     }
     
     /** Disable the movement with the keyboard.
@@ -91,5 +124,11 @@ public class KeyboardMovement : MonoBehaviour
     public void DisableKeyboardMovement()
     {
         _movementEnabled = false;
+    }
+
+    public void ToggleKeyboardMovement()
+    {
+        _movementEnabled = !_movementEnabled;
+        _puzzleEnabled = !_puzzleEnabled;
     }
 }

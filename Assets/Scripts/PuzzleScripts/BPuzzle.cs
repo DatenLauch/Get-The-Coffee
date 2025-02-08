@@ -12,14 +12,13 @@ public class BPuzzle : MonoBehaviour, IInteractable
     [SerializeField] private string _prompt;
     public string Interactionprompt => _prompt;
 
-    private bool number;
-
     [SerializeField] public BPuzzleNumber[] puzzleComponents;
     private int puzzleComponentIndex = 0; 
 
     public FollowPlayerCamera cameraScript;
     public SerialController serialController;
-
+    public KeyboardMovement keyboardMovementScript;
+    public bool keyboardActive = false;
     public BPuzzleNumber[] getBPuzzleComponents()
     {
         return puzzleComponents;
@@ -29,7 +28,8 @@ public class BPuzzle : MonoBehaviour, IInteractable
         Debug.Log("Interacting with BPuzzle");
         if(cameraScript != null) cameraScript.ToggleCameraFollow();
         // movementScript und camerascript toggle
-        serialController.ToggleMovmentAndRotation();
+        if(!keyboardActive) serialController.ToggleMovmentAndRotation();
+        if (keyboardActive) keyboardMovementScript.ToggleKeyboardMovement();
         ActivateCurrentPuzzleComponent();
         return true;
     }
@@ -37,7 +37,8 @@ public class BPuzzle : MonoBehaviour, IInteractable
     public void ToggleCameraFollowAndMovement()
     {
         cameraScript.ToggleCameraFollow();
-        serialController.ToggleMovmentAndRotation();
+        if(!keyboardActive) serialController.ToggleMovmentAndRotation();
+        if (keyboardActive) keyboardMovementScript.ToggleKeyboardMovement();
     }
     public void ActivateCurrentPuzzleComponent()
     {
@@ -51,8 +52,8 @@ public class BPuzzle : MonoBehaviour, IInteractable
     
     void Start()
     {
-        serialController.OnPuzzleInput += ShowBorderOfCurrentSelection;
-
+        if(!keyboardActive) serialController.OnPuzzleInput += ShowBorderOfCurrentSelection;
+        if (keyboardActive) keyboardMovementScript.OnPuzzleInput += ShowBorderOfCurrentSelection;
     }
     
     void ShowBorderOfCurrentSelection(int index, bool change)
@@ -82,7 +83,8 @@ public class BPuzzle : MonoBehaviour, IInteractable
         if (change && puzzleComponentIndex >= puzzleComponents.Length - 1 && !_isCooldownActive)
         {
             cameraScript.ToggleCameraFollow();
-            serialController.ToggleMovmentAndRotation();
+            if(!keyboardActive)serialController.ToggleMovmentAndRotation();
+            if(keyboardActive)keyboardMovementScript.ToggleKeyboardMovement();
         }
         
         if (change && puzzleComponentIndex < puzzleComponents.Length - 1 )
@@ -91,6 +93,8 @@ public class BPuzzle : MonoBehaviour, IInteractable
             selectedComponent.ChangeNumber();
         }
     }
+    
+    
     private bool _isCooldownActive = false;
     IEnumerator ActivateCooldown()
     {

@@ -771,9 +771,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 330585548}
     - target: {fileID: 6296669444703487912, guid: 86f6ac389edc52645bb82d78ba4244e3, type: 3}
+      propertyPath: keyboardActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6296669444703487912, guid: 86f6ac389edc52645bb82d78ba4244e3, type: 3}
       propertyPath: serialController
       value: 
       objectReference: {fileID: 850895911}
+    - target: {fileID: 6296669444703487912, guid: 86f6ac389edc52645bb82d78ba4244e3, type: 3}
+      propertyPath: keyboardMovementScript
+      value: 
+      objectReference: {fileID: 179552928}
     - target: {fileID: 6296669444703487912, guid: 86f6ac389edc52645bb82d78ba4244e3, type: 3}
       propertyPath: 'puzzleComponents.Array.data[4]'
       value: 
@@ -5148,7 +5156,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCardID: 33bbf92e
   serialController: {fileID: 850895911}
-  correctKeyCard: 0
+  correctKeyCard: 1
   uiManager: {fileID: 3780778}
   audioManager: {fileID: 1661401199}
 --- !u!95 &275474733
@@ -32144,7 +32152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _prompt: 
   bPuzzle: {fileID: 1332757155}
-  solutionNumber: 31
+  solutionNumber: 27
   doorToOpen: {fileID: 1503862944}
   audioManager: {fileID: 1661401199}
 --- !u!1 &1505719961 stripped
@@ -41604,7 +41612,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCardID: 33bbf92e
   serialController: {fileID: 850895911}
-  correctKeyCard: 0
+  correctKeyCard: 1
   uiManager: {fileID: 3780778}
   audioManager: {fileID: 1661401199}
 --- !u!1001 &1895109516
