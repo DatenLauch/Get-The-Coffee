@@ -14,8 +14,8 @@ namespace EndScreen
         [SerializeField] protected GameObject player;
         [SerializeField] protected GameObject keyboardMovement;
 
-        private bool _gameCompleted = false; // Set this based on game completion
-        private float _timeLeft = 120f; // Example time remaining
+        private bool _gameCompleted = false;
+        private float _timeLeft;
         private RawImage _endScreenImage;
 
         void ShowEndScreen()
@@ -23,8 +23,14 @@ namespace EndScreen
             blurPanel.SetActive(true);
 
             _endScreenImage = _gameCompleted ? successImage : failureImage;
+            
+            int minutes = Mathf.FloorToInt(_timeLeft / 60f);
+            int seconds = Mathf.RoundToInt(_timeLeft % 60f);
 
-            gameInfoText.text = $"{_timeLeft:F2}";
+            string minutesText = minutes.ToString("00");
+            string secondsText = seconds.ToString("00");
+
+            gameInfoText.text = $"{minutesText} : {secondsText}";
 
             _endScreenImage.gameObject.SetActive(true);
             if (_gameCompleted)
