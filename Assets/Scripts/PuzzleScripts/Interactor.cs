@@ -19,6 +19,8 @@ public class Interactor : MonoBehaviour
     private IInteractable _interactable;
     bool interaction = false;
     private bool _isCooldownActive = false;
+    
+    //source: https://www.youtube.com/watch?v=LdoImzaY6M4&t=435s
     private void Start()
     {
         
